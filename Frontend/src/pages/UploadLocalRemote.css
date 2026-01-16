@@ -1,0 +1,399 @@
+.upload-local-remote-page {
+  padding: 20px;
+  overflow-x: hidden;
+}
+
+.page-header {
+  margin-bottom: 30px;
+}
+
+.page-header h1 {
+  font-size: 28px;
+  color: #2c3e50;
+  margin: 0;
+}
+
+/* Backend Selection */
+.backend-selection {
+  margin-bottom: 30px;
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.backend-selection label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: 600;
+  color: #2c3e50;
+  font-size: 16px;
+}
+
+.backend-select {
+  width: 100%;
+  max-width: 400px;
+  padding: 10px 15px;
+  border: 2px solid #bdc3c7;
+  border-radius: 6px;
+  font-size: 14px;
+  background: white;
+  cursor: pointer;
+  transition: border-color 0.3s ease;
+}
+
+.backend-select:hover {
+  border-color: #3498db;
+}
+
+.backend-select:focus {
+  outline: none;
+  border-color: #3498db;
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+}
+
+/* Tabs */
+.tabs-container {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 30px;
+  border-bottom: 2px solid #ecf0f1;
+}
+
+.tab-btn {
+  padding: 12px 24px;
+  background: transparent;
+  border: none;
+  border-bottom: 3px solid transparent;
+  font-size: 16px;
+  font-weight: 500;
+  color: #7f8c8d;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  bottom: -2px;
+}
+
+.tab-btn:hover:not(:disabled) {
+  color: #3498db;
+  background-color: #f8f9fa;
+}
+
+.tab-btn.active {
+  color: #3498db;
+  border-bottom-color: #3498db;
+  font-weight: 600;
+}
+
+.tab-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Upload Tab */
+.upload-tab {
+  background: white;
+  border-radius: 8px;
+  padding: 30px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.upload-form-container h2 {
+  margin: 0 0 25px 0;
+  font-size: 22px;
+  color: #2c3e50;
+}
+
+.upload-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-group label {
+  font-weight: 600;
+  color: #2c3e50;
+  font-size: 14px;
+}
+
+.form-select {
+  padding: 10px 15px;
+  border: 2px solid #bdc3c7;
+  border-radius: 6px;
+  font-size: 14px;
+  background: white;
+  cursor: pointer;
+  transition: border-color 0.3s ease;
+}
+
+.form-select:hover:not(:disabled) {
+  border-color: #3498db;
+}
+
+.form-select:focus {
+  outline: none;
+  border-color: #3498db;
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+}
+
+.form-select:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.form-help {
+  font-size: 12px;
+  color: #95a5a6;
+  font-style: italic;
+  margin: 0;
+}
+
+.form-info {
+  font-size: 14px;
+  color: #34495e;
+  padding: 12px;
+  background: #ecf0f1;
+  border-radius: 6px;
+  margin: 0;
+}
+
+.upload-btn {
+  padding: 12px 24px;
+  background-color: #27ae60;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  align-self: flex-start;
+}
+
+.upload-btn:hover:not(:disabled) {
+  background-color: #229954;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.upload-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Status Tab */
+.status-tab {
+  background: white;
+  border-radius: 8px;
+  padding: 30px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.no-backend-selected,
+.no-statuses {
+  text-align: center;
+  padding: 40px;
+  color: #95a5a6;
+  font-style: italic;
+}
+
+.loading-container {
+  text-align: center;
+  padding: 40px;
+}
+
+.loading {
+  font-size: 16px;
+  color: #7f8c8d;
+}
+
+.status-table-container h2 {
+  margin: 0 0 20px 0;
+  font-size: 22px;
+  color: #2c3e50;
+  font-weight: 600;
+}
+
+.table-wrapper {
+  overflow-x: auto;
+}
+
+.status-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.status-table thead {
+  background-color: #34495e;
+  color: white;
+}
+
+.status-table th {
+  padding: 12px;
+  text-align: left;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.status-table td {
+  padding: 12px;
+  border-bottom: 1px solid #e0e0e0;
+  color: #333;
+}
+
+.status-table tbody tr:hover {
+  background-color: #f8f9fa;
+}
+
+.job-id-cell {
+  font-family: monospace;
+  font-size: 12px;
+  max-width: 200px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.message-cell {
+  max-width: 200px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.result-cell {
+  max-width: 300px;
+}
+
+.result-cell details {
+  cursor: pointer;
+}
+
+.result-cell summary {
+  color: #3498db;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.result-cell pre {
+  margin: 10px 0 0 0;
+  padding: 10px;
+  background: #f8f9fa;
+  border-radius: 4px;
+  font-size: 11px;
+  overflow-x: auto;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.type-badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.type-badge.database {
+  background-color: #9b59b6;
+  color: white;
+}
+
+.type-badge.files {
+  background-color: #f39c12;
+  color: white;
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.status-badge.status-completed {
+  background-color: #27ae60;
+  color: white;
+}
+
+.status-badge.status-failed {
+  background-color: #e74c3c;
+  color: white;
+}
+
+.status-badge.status-processing {
+  background-color: #3498db;
+  color: white;
+  animation: pulse 2s infinite;
+}
+
+.status-badge.status-unknown {
+  background-color: #95a5a6;
+  color: white;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
+.delete-btn {
+  padding: 6px 12px;
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.delete-btn:hover {
+  background-color: #c0392b;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .tabs-container {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .tab-btn {
+    width: 100%;
+    text-align: left;
+    border-bottom: 1px solid #ecf0f1;
+    border-left: 3px solid transparent;
+    bottom: 0;
+  }
+
+  .tab-btn.active {
+    border-left-color: #3498db;
+    border-bottom-color: #ecf0f1;
+  }
+
+  .status-table {
+    font-size: 12px;
+  }
+
+  .status-table th,
+  .status-table td {
+    padding: 8px;
+  }
+}

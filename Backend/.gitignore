@@ -1,0 +1,17 @@
+node_modules/
+.env
+.DS_Store
+*.log
+dist/
+build/
+./FailedBackup/
+./backups/
+./backups/files/
+./backups/database/
+./backups/database/files/
+./backups/database/database/
+./backups/database/database/files/
+./backups/database/database/database/
+./backups/database/database/database/files/
+./backups/database/database/database/database/
+./Faiz

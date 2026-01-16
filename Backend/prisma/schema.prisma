@@ -1,0 +1,66 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Setting {
+  id          Int      @id @default(autoincrement())
+  backendname String
+  DBurl      String
+  bucketurl  String
+  attributes Json
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  @@map("settings")
+}
+
+model BackupStatus {
+  id          String   @id @default(uuid())
+  jobId       String   @unique
+  status      String   // 'processing', 'completed', 'failed'
+  type        String   // 'files' or 'database'
+  backendName String
+  progress    Int      @default(0)
+  message     String?
+  result      Json?
+  error       String?
+  isAutomatic Boolean  @default(false) // true for automatic backups, false for manual
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@map("backup_statuses")
+  @@index([jobId])
+  @@index([status])
+  @@index([createdAt])
+  @@index([isAutomatic])
+}
+
+model UploadStatus {
+  id          String   @id @default(uuid())
+  jobId       String   @unique
+  status      String   // 'processing', 'completed', 'failed'
+  type        String   // 'files' or 'database'
+  backendName String
+  tableName   String?  // For database uploads
+  progress    Int      @default(0)
+  message     String?
+  result      Json?    // Contains: totalRecords, uploadedRecords, matchedRecords, errors, success
+  error       String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@map("upload_statuses")
+  @@index([jobId])
+  @@index([status])
+  @@index([backendName])
+  @@index([createdAt])
+  @@index([type])
+}
