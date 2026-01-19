@@ -142,7 +142,7 @@ export function startDatabaseAutoBackup() {
     };
 
     console.log(`✅ Automatic database backup scheduled: ${schedule}`);
-    console.log(`   Next run: ${nextRun ? nextRun.toISOString() : 'N/A'}`);
+    console.log(`   Next run: ${autoBackupStatus.database.nextRun || 'Calculating...'}`);
   } catch (error) {
     console.error('Error starting automatic database backup:', error);
     autoBackupStatus.database.enabled = false;
@@ -278,7 +278,7 @@ export function startFilesAutoBackup() {
     };
 
     console.log(`✅ Automatic files backup scheduled: ${schedule}`);
-    console.log(`   Next run: ${nextRun ? nextRun.toISOString() : 'N/A'}`);
+    console.log(`   Next run: ${autoBackupStatus.files.nextRun || 'Calculating...'}`);
   } catch (error) {
     console.error('Error starting automatic files backup:', error);
     autoBackupStatus.files.enabled = false;

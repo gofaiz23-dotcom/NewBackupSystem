@@ -2,6 +2,8 @@ import dotenv from 'dotenv';
 dotenv.config();
 import express from 'express';
 import cors from 'cors';
+import path from 'path';
+import fs from 'fs/promises';
 import settingRoutes from './routes/settingRoutes.js';
 import fhsDatabaseRoutes from './routes/fhsDatabaseRoutes.js';
 import fhsFilesRoutes from './routes/fhsFilesRoutes.js';
@@ -111,6 +113,41 @@ async function testDatabaseConnection() {
   }
 }
 
+// Check and verify BACKUP_UPLOAD_PATH
+async function checkBackupPath() {
+  try {
+    const backupPathEnv = process.env.BACKUP_UPLOAD_PATH || './backups/files';
+    const resolvedPath = path.isAbsolute(backupPathEnv) 
+      ? backupPathEnv 
+      : path.resolve(process.cwd(), backupPathEnv);
+    
+    console.log('📁 Checking backup path configuration...');
+    console.log(`   Environment variable: ${backupPathEnv || 'Not set (using default: ./backups/files)'}`);
+    console.log(`   Resolved path: ${resolvedPath}`);
+    
+    try {
+      // Check if path exists
+      await fs.access(resolvedPath);
+      console.log(`✅ Backup path exists: ${resolvedPath}`);
+      return true;
+    } catch (error) {
+      // Path doesn't exist, try to create it
+      try {
+        await fs.mkdir(resolvedPath, { recursive: true });
+        console.log(`✅ Backup path created: ${resolvedPath}`);
+        return true;
+      } catch (createError) {
+        console.error(`❌ Failed to create backup path: ${resolvedPath}`);
+        console.error(`   Error: ${createError.message}`);
+        return false;
+      }
+    }
+  } catch (error) {
+    console.error('❌ Error checking backup path:', error.message);
+    return false;
+  }
+}
+
 // Cleanup old backup statuses periodically
 async function startStatusCleanup() {
   const { cleanupOldStatuses } = await import('./services/backupStatusService.js');
@@ -149,6 +186,10 @@ app.listen(PORT, async () => {
     const { initializeAutoBackup } = await import('./services/autoBackupService.js');
     initializeAutoBackup();
   }
+  
+  // Check backup path
+  await checkBackupPath();
+  
   console.log('='.repeat(50));
 });
 
